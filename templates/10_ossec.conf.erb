@@ -19,6 +19,8 @@
 
   <!-- Included rules (static) -->
   <rules>
+    <decoder_dir>etc/ossec_decoders</decoder_dir>
+    <decoder_dir>etc/wazuh_decoders</decoder_dir>
     <include>rules_config.xml</include>
     <include>pam_rules.xml</include>
     <include>sshd_rules.xml</include>
@@ -77,7 +79,7 @@
     <include>attack_rules.xml</include>
     <% @ossec_extra_rules_config.each do |rule_config| -%>
     <%= rule_config %>
-<% end -%>
+    <% end -%>
     <include>local_rules.xml</include>
   </rules>
 
