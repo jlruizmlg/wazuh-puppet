@@ -18,38 +18,6 @@ class wazuh::params {
       $processlist_group = 'ossec'
 
       case $::osfamily {
-        'Debian': {
-
-          $agent_service  = 'wazuh-agent'
-
-          $agent_package  = 'wazuh-agent'
-
-          $service_has_status  = false
-
-          $ossec_service_provider = undef
-
-          $default_local_files = {
-            '/var/log/syslog'             => 'syslog',
-            '/var/log/auth.log'           => 'syslog',
-            '/var/log/mail.log'           => 'syslog',
-            '/var/log/dpkg.log'           => 'syslog',
-            '/var/log/apache2/access.log' => 'apache',
-            '/var/log/apache2/error.log'  => 'apache'
-          }
-
-          case $::lsbdistcodename {
-            /(precise|trusty|vivid|wily|xenial)/: {
-              $server_service = 'wazuh-manager'
-              $server_package = 'wazuh-manager'
-            }
-            /^(jessie|wheezy|stretch|sid)$/: {
-              $server_service = 'wazuh-manager'
-              $server_package = 'wazuh-manager'
-            }
-            default: { fail('This ossec module has not been tested on your distribution (or lsb package not installed)') }
-          }
-
-        }
         'Redhat': {
 
           $agent_service  = 'wazuh-agent'
@@ -88,7 +56,7 @@ class wazuh::params {
 
       $agent_service  = 'OssecSvc'
 
-      $agent_package  = 'WAZUH HIDS 1.1.1'
+      $agent_package  = 'WAZUH HIDS'
 
       $server_service = ''
 
