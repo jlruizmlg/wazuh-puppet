@@ -21,21 +21,9 @@ This Puppet module has been authored by Nicolas Zin, and updated by Jonathan Gaz
 
 ```
 node "manager.xxxx.com" {
-package { 'rubygems':
-  ensure => present,
-}
-package { 'puppet-lint':
-  ensure   => '1.1.0',
-  provider => 'gem',
-}
    class { 'wazuh::server':
      mailserver_ip => 'localhost',
-     ossec_emailto => ['yokatan@gmail.com'],
-     use_mysql => true,
-     mysql_hostname => '127.0.0.1',
-     mysql_name => 'ossec',
-     mysql_password => 'yourpassword',
-     mysql_username  => 'ossec',
+     ossec_emailto => ['ossec@xxxx.com']
    }
 
    wazuh::addlog { 'monitorLogFile':
